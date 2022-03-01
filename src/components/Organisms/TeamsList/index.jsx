@@ -11,6 +11,7 @@
  */
 
 import { useState } from "react";
+import Button from "../../Atoms/Button";
 
 const TEAMS = [
 	{
@@ -69,29 +70,41 @@ export function TeamsList() {
 	const [teams, setTeams] = useState(TEAMS);
 
 	// Order teams by score (highest to lowest)
-	function orderTeamByScoreHighestToLowest() {
-		// Write your code here
-	}
+	const orderTeamByScoreHighestToLowest=()=>setTeams(currentTeams=>[...teams].sort((t1, t2) =>
+	t1.totalScore > t2.totalScore ? -1 : 1
+  ))
 
 	// Order teams by score (lowest to highest)
-	function orderTeamByScoreLowestToHighest() {
-		// Write your code here
-	}
+	const orderTeamByScoreLowestToHighest=()=>setTeams(currentTeams=>[...currentTeams].sort((t1, t2) =>
+	t1.totalScore > t2.totalScore ? 1 : -1
+  ))
 
 	// Filtering teams that with at least 3 players
-	function teamsWithMoreThanThreePlayers() {
-		// Write your code here
-	}
+	const teamsWithMoreThanThreePlayers=()=>setTeams(currentTeams=>currentTeams.filter((t) => t.players.length >= 3))
 
 	return (
 		<div>
-			<button onClick={() => setTeams(TEAMS)}>Initial list</button>
+			<Button onClick={() => setTeams(TEAMS)}>Initial list</Button>
+			<Button onClick={orderTeamByScoreHighestToLowest}>Highest to Lowest</Button>
+			<Button onClick={orderTeamByScoreLowestToHighest}>Lowest to Highest</Button>
+			<Button onClick={teamsWithMoreThanThreePlayers}>Teams with at least 3 players</Button>
 
-			<button>Highest to Lowest</button>
-			<button>Lowest to Highest</button>
-			<button>Teams with at least 3 players</button>
-
-			<ul className="teams">{/** Render the list of teams */}</ul>
+			<ul className="teams"> {teams.map((t) => (
+          <div className="team-container" key={`team-item-${t.name}`}>
+            <div className="team-row">
+              <div>Team name</div>
+              <div>{t.name}</div>
+            </div>
+            <div className="team-row">
+              <div>Players quantity</div>
+              <div>{t.players.length}</div>
+            </div>
+            <div className="team-row">
+              <div>Total score</div>
+              <div>{t.totalScore}</div>
+            </div>
+          </div>
+        ))}</ul>
 		</div>
 	);
 }

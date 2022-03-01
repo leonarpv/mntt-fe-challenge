@@ -3,8 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Message } from "./components/Molecules/Message";
 import { FocusableInput } from "./components/Molecules/FocusableInput";
 import { ImageGallery } from "./components/Organisms/ImageGallery";
-import { PlayerStatus } from "./components/Organisms/PlayerStatus";
-import TeamList from "./components/TeamsList";
+import {TeamsList} from "./components/Organisms/TeamsList";
 import GalleryService from './services/GalleryService'
 import NavigationService from './services/NavigationService'
 import './App.css';
@@ -59,7 +58,9 @@ export default function App() {
       <Wrapper title="'Rating' test" >
         <Rating />
       </Wrapper>
-  
+      <Wrapper title="'TeamsList' test" >
+        <TeamsList/>
+      </Wrapper>
     </div>
   );
 }
