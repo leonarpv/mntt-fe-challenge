@@ -10,7 +10,7 @@
 function Image({ id, download_url, onRemove }) {
 	console.log(download_url)
 	return (
-		<div class="image">
+		<div className="image">
 		<img src={download_url} height="100" />
 		<button className="remove" onClick={() => onRemove(id)}>X</button>
 		</div>

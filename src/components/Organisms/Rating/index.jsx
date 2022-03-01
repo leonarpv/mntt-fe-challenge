@@ -29,10 +29,11 @@ import Star from "../../Atoms/Star";
 import { StarsContainer } from "./styles.css";
 
  export function Rating() {
-	const [currentStarIdx, setCurrentStarIdx] = useState(null);
+	const [selectedStar, setSelectedStar] = useState(null);
 	const starItems = new Array(5).fill("*");
 	const handleStarClick = ({id}) => () => {
-	  setCurrentStarIdx(id);
+
+		setSelectedStar(id);
 	};
   
 	return (
@@ -40,9 +41,7 @@ import { StarsContainer } from "./styles.css";
 		{starItems.map((star, id) => (
 		  <Star
 			onClick={handleStarClick({id})}
-			className={
-			  currentStarIdx !== null && id <= currentStarIdx ? "active" : ""
-			}
+			active={selectedStar !== null && id <= selectedStar}
 			key={`star-${id}`}
 			content={star}
 		  />

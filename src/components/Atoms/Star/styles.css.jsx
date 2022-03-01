@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 const StyledStar = styled.span`
-  color: hsl(0, 100%, 80%);
+  color:${props=>props.active?'yellow':'gray'};
+  height: 200px;
   &:hover {
+    color: yellow;
     cursor: pointer;
   }
-  ${props=>props.active?'':''}
+
 `;
 export {
     StyledStar
