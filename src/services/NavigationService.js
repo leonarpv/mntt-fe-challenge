@@ -1,78 +1,32 @@
-const getNavigationItems=()=>{
-    return [
-        {
-          "id": 1,
-          "name": "Drusilla",
-          "lastName": "Demer",
-          "address": "5360 Bluestem Point",
-          "avatar": "https://robohash.org/veroetvoluptas.png?size=50x50&set=set1"
-        },
-        {
-          "id": 2,
-          "name": "Halsey",
-          "lastName": "Lob",
-          "address": "46 Waubesa Road",
-          "avatar": "https://robohash.org/molestiaeundequos.png?size=50x50&set=set1"
-        },
-        {
-          "id": 3,
-          "name": "Zared",
-          "lastName": "Clissett",
-          "address": "2787 Pennsylvania Terrace",
-          "avatar": "https://robohash.org/estistevitae.png?size=50x50&set=set1"
-        },
-        {
-          "id": 4,
-          "name": "Iosep",
-          "lastName": "Antonescu",
-          "address": "38 Eastwood Place",
-          "avatar": "https://robohash.org/nihilveronesciunt.png?size=50x50&set=set1"
-        },
-        {
-          "id": 5,
-          "name": "Paola",
-          "lastName": "Kiddle",
-          "address": "206 Commercial Court",
-          "avatar": "https://robohash.org/occaecatiundenihil.png?size=50x50&set=set1"
-        },
-        {
-          "id": 6,
-          "name": "Zeke",
-          "lastName": "Sesser",
-          "address": "608 Red Cloud Road",
-          "avatar": "https://robohash.org/evenietcommodiinventore.png?size=50x50&set=set1"
-        },
-        {
-          "id": 7,
-          "name": "Broddie",
-          "lastName": "Ilyukhov",
-          "address": "2 Armistice Street",
-          "avatar": "https://robohash.org/inciduntinet.png?size=50x50&set=set1"
-        },
-        {
-          "id": 8,
-          "name": "Teri",
-          "lastName": "Glawsop",
-          "address": "075 John Wall Hill",
-          "avatar": "https://robohash.org/doloribusdoloreducimus.png?size=50x50&set=set1"
-        },
-        {
-          "id": 9,
-          "name": "Ladonna",
-          "lastName": "Manes",
-          "address": "2408 Toban Street",
-          "avatar": "https://robohash.org/pariaturautemdolor.png?size=50x50&set=set1"
-        },
-        {
-          "id": 10,
-          "name": "Nerte",
-          "lastName": "Richardet",
-          "address": "68 Burning Wood Place",
-          "avatar": "https://robohash.org/perspiciatisexpeditavel.png?size=50x50&set=set1"
-        }
-      ]
+const getNavigationItems = () => {
+  return [
+    {
+      id: 1,
+      name: "Charles",
+      lastName: "Darwin",
+      birth: "February 12, 1809, The Mount House, Shrewsbury, United Kingdom",
+      avatar:
+        "https://cdn.pixabay.com/photo/2020/03/12/01/21/charles-darwin-4923636_640.png",
+    },
+    {
+      id: 2,
+      name: "Nikola",
+      lastName: "Tesla",
+      birth: "July 10, 1856, Smiljan, Croatia",
+      avatar:
+        "https://cdn.pixabay.com/photo/2020/07/24/02/49/person-5432766_1280.png",
+    },
+    {
+      id: 3,
+      name: "Albert",
+      lastName: "Einstein",
+      birth: "March 14, 1879, Ulm, Germany",
+      avatar:
+        "https://cdn.pixabay.com/photo/2016/01/17/14/23/albert-einstein-1144965_1280.jpg",
+    },
+  ]
 }
 
 export default {
-    getNavigationItems
+  getNavigationItems,
 }

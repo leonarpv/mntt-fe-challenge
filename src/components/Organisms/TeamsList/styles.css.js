@@ -3,6 +3,9 @@ import styled from "styled-components"
 const TeamsContainer = styled.div`
   display: flex;
   flex-direction: column;
+  border: 1px lightblue solid;
+  margin: 20px;
+  border-radius: 20px;
 `
 const ButtonsBar = styled.div`
   display: flex;
