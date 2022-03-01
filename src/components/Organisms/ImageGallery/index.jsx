@@ -6,30 +6,52 @@
  * It should also implement the following logic:
  * - When the button is clicked, the image that is in the same div as the button should be removed from the gallery.
  */
-
+import React, { useState, useEffect, useCallback } from "react"
 import Button from "../../Atoms/Button"
-import { GalleryImage, ImageContainer } from "./styles.css"
+import { Gallery } from "../../Molecules/Gallery"
+import GlobalLoader from "../../Molecules/GlobalLoader"
+import GalleryService from "../../../services/GalleryService"
+import { GalleryContainer } from "./styles.css"
+const GalleryLoading = GlobalLoader(Gallery)
 
-function Image({ id, src, onRemove }) {
-  return (
-    <ImageContainer>
-      <GalleryImage src={src} />
-      <Button className="remove" onClick={() => onRemove(id)}>
-        X
-      </Button>
-    </ImageContainer>
+export function ImageGallery() {
+  const [loadingGallery, setLoadingGallery] = useState(false)
+  const [imageLinks, setImageLinks] = useState([])
+  const handleOnRemove = React.useCallback(
+    (id) => {
+      const items = [...imageLinks]
+      items.splice(
+        items.findIndex((item) => item.id === id),
+        1
+      )
+      setImageLinks(items)
+    },
+    [imageLinks]
   )
-}
 
-export function ImageGallery({ links, handleOnRemove }) {
+  const getImages = useCallback(async () => {
+    try {
+      setLoadingGallery(true)
+      const images = await GalleryService.getImages()
+      setImageLinks(images)
+      setLoadingGallery(false)
+    } catch (error) {}
+  }, [])
+
+  useEffect(() => {
+    getImages()
+  }, [getImages])
+
   return (
-    <>
-      {links &&
-        links
-          .slice(0, 1)
-          .map((link, keyId) => (
-            <Image key={`image-${keyId}`} {...link} onRemove={handleOnRemove} />
-          ))}
-    </>
+    <GalleryContainer>
+      <GalleryLoading
+        isLoading={loadingGallery}
+        links={imageLinks}
+        handleOnRemove={handleOnRemove}
+      />
+      {imageLinks.length === 0 && !loadingGallery && (
+        <Button onClick={() => getImages()}>Get more images</Button>
+      )}
+    </GalleryContainer>
   )
 }

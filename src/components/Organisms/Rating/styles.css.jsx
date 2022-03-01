@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled from "styled-components"
 
 const StarsContainer = styled.div`
-display: flex;
-border:black  1px ;
-`;
-export {
-    StarsContainer
-}
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: black 1px;
+  font-size: 70px;
+`
+export { StarsContainer }

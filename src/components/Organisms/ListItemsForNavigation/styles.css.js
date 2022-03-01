@@ -1,5 +1,11 @@
 import styled from "styled-components"
 
+const NavigationContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+`
+
 const FocusableList = styled.ul`
   list-style-type: none;
   flex-direction: "column";
@@ -9,7 +15,7 @@ const FocusableList = styled.ul`
 
 const FocusableItem = styled.li`
   display: flex;
-  width: 20%;
+  width: 100%;
   &:hover {
     cursor: pointer;
   }
@@ -22,7 +28,10 @@ const Avatar = styled.img`
 
 const FocusableContainer = styled.div`
   border: 1px solid;
+  width: 100%;
+  margin: 10px 0;
   border-color: ${(props) => (props.focused ? "white" : "gray")};
+  color: ${(props) => (props.focused ? "white" : "black")};
   border-radius: 20px;
   display: flex;
   flex-direction: "column";
@@ -48,6 +57,7 @@ const InfoList = styled.ol`
   }
 `
 export {
+  NavigationContainer,
   Avatar,
   FocusableList,
   FocusableItem,

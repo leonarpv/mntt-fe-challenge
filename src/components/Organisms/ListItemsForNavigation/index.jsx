@@ -19,6 +19,7 @@ import {
   AvatarSection,
   InfoSection,
   InfoList,
+  NavigationContainer,
 } from "./styles.css"
 
 export function ListItemsForNavigation({ listItems }) {
@@ -47,40 +48,42 @@ export function ListItemsForNavigation({ listItems }) {
   }
 
   return (
-    <FocusableList onKeyDown={handleKeyDown} tabIndex={0}>
-      {/** Render itemsList as you wish, probably you want to render <li></li> with the proper attributes */}
-      {/** If you have issues focusing an element, it is probably because the element is not focusable originally. Try with tabIndex={0} */}
-      {/** Do not forget to pass the reference to the selected item */}
-      {listItems.map((i, idx) => {
-        const isFocused = selectedIndex === idx
-        return (
-          <FocusableItem key={`focusable-list-item-${i.id}`}>
-            <FocusableContainer
-              focused={isFocused}
-              ref={isFocused ? activeItemRef : null}
-              onClick={() => setSelectedIndex(idx)}
-            >
-              <AvatarSection>
-                <Avatar src={i.avatar} alt={`${i.name} ${i.lastName}`} />
-              </AvatarSection>
-              <InfoSection className="item-navigation-info">
-                <InfoList>
-                  <label>Name:</label>
-                  <div>{i.name}</div>
-                </InfoList>
-                <InfoList>
-                  <label>Last name:</label>
-                  <div>{i.lastName}</div>
-                </InfoList>
-                <InfoList>
-                  <label>Birth</label>
-                  <div>{i.birth}</div>
-                </InfoList>
-              </InfoSection>
-            </FocusableContainer>
-          </FocusableItem>
-        )
-      })}
-    </FocusableList>
+    <NavigationContainer>
+      <FocusableList onKeyDown={handleKeyDown} tabIndex={0}>
+        {/** Render itemsList as you wish, probably you want to render <li></li> with the proper attributes */}
+        {/** If you have issues focusing an element, it is probably because the element is not focusable originally. Try with tabIndex={0} */}
+        {/** Do not forget to pass the reference to the selected item */}
+        {listItems.map((i, idx) => {
+          const isFocused = selectedIndex === idx
+          return (
+            <FocusableItem key={`focusable-list-item-${i.id}`}>
+              <FocusableContainer
+                focused={isFocused}
+                ref={isFocused ? activeItemRef : null}
+                onClick={() => setSelectedIndex(idx)}
+              >
+                <AvatarSection>
+                  <Avatar src={i.avatar} alt={`${i.name} ${i.lastName}`} />
+                </AvatarSection>
+                <InfoSection className="item-navigation-info">
+                  <InfoList>
+                    <label>Name:</label>
+                    <div>{i.name}</div>
+                  </InfoList>
+                  <InfoList>
+                    <label>Last name:</label>
+                    <div>{i.lastName}</div>
+                  </InfoList>
+                  <InfoList>
+                    <label>Birth</label>
+                    <div>{i.birth}</div>
+                  </InfoList>
+                </InfoSection>
+              </FocusableContainer>
+            </FocusableItem>
+          )
+        })}
+      </FocusableList>
+    </NavigationContainer>
   )
 }

@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
-const ImageContainer = styled.div``
-const GalleryImage = styled.img`
-  height: 300px;
-  border-radius: 0ch;
+const GalleryContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `
 
-export { GalleryImage, ImageContainer }
+export { GalleryContainer }

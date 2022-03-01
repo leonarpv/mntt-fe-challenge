@@ -1,4 +1,4 @@
-import { Dot, LoadingWrapper } from "./styles"
+import { Dot, LoadingWrapper } from "./styles.css"
 
 export default function Loading() {
   return (
