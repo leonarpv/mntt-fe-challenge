@@ -7,20 +7,29 @@
  * - When the button is clicked, the image that is in the same div as the button should be removed from the gallery.
  */
 
-function Image({ id, download_url, onRemove }) {
-	console.log(download_url)
-	return (
-		<div className="image">
-		<img src={download_url} height="100" />
-		<button className="remove" onClick={() => onRemove(id)}>X</button>
-		</div>
-	);
+import Button from "../../Atoms/Button"
+import { GalleryImage, ImageContainer } from "./styles.css"
+
+function Image({ id, src, onRemove }) {
+  return (
+    <ImageContainer>
+      <GalleryImage src={src} />
+      <Button className="remove" onClick={() => onRemove(id)}>
+        X
+      </Button>
+    </ImageContainer>
+  )
 }
 
 export function ImageGallery({ links, handleOnRemove }) {
-	return (
-		<div>
-		{links && links.slice(0, 2).map((link) => <Image key={link.id} {...link} onRemove={handleOnRemove} />)}
-		</div>
-	);
+  return (
+    <>
+      {links &&
+        links
+          .slice(0, 1)
+          .map((link, keyId) => (
+            <Image key={`image-${keyId}`} {...link} onRemove={handleOnRemove} />
+          ))}
+    </>
+  )
 }
