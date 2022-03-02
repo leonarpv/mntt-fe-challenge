@@ -22,30 +22,23 @@
  *   </ul>
  */
 
-function Product(props) {
-	function handlePlus() {
-		// logic to vote a product
-	}
-
-	function handleMinus() {
-		// logic to unvote a product
-	}
-
-	return (
-		<li>
-			<span>
-				{/* Product name */} - votes: {/* Number of votes*/}
-			</span>
-			<button onClick={handlePlus}>+</button>
-			<button onClick={handleMinus}>-</button>
-		</li>
-	);
-}
+import { useReducer } from "react"
+import groceryReducer from "../../../state/groceryReducer"
+import { Product } from "../../Molecules/Product"
+import { GroceryContainer, GroceryList, GroceryListItem } from "./styles.css"
 
 export function Grocery({ products }) {
-	return (
-		<ul>
-			{/* Render an array of products, which should call onVote when + or - is clicked */}
-		</ul>
-	);
+  const [productsState, dispatch] = useReducer(groceryReducer, products)
+
+  return (
+    <GroceryContainer>
+      <GroceryList>
+        {productsState.map((p) => (
+          <GroceryListItem key={`product-item-${p.id}`}>
+            <Product key={`product-${p.name}`} info={p} dispatch={dispatch} />
+          </GroceryListItem>
+        ))}
+      </GroceryList>
+    </GroceryContainer>
+  )
 }

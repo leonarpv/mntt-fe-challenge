@@ -1,14 +1,16 @@
 import React, { useCallback, useState } from "react"
+import NavigationService from "./services/NavigationService"
+import CroceryService from "./services/CroceryService"
+import "./App.css"
+import Button from "./components/Atoms/Button"
+import Wrapper from "./components/Atoms/Wrapper"
 import { Message } from "./components/Molecules/Message"
 import { FocusableInput } from "./components/Molecules/FocusableInput"
 import { TeamsList } from "./components/Organisms/TeamsList"
-import NavigationService from "./services/NavigationService"
-import "./App.css"
-import Wrapper from "./components/Atoms/Wrapper"
 import { ListItemsForNavigation } from "./components/Organisms/ListItemsForNavigation"
 import { ImageGallery } from "./components/Organisms/ImageGallery"
 import { Rating } from "./components/Organisms/Rating"
-import Button from "./components/Atoms/Button"
+import { Grocery } from "./components/Organisms/Grocery"
 
 export default function App() {
   const [inputFocused, setInputFocused] = useState(false)
@@ -37,6 +39,9 @@ export default function App() {
         <ListItemsForNavigation
           listItems={NavigationService.getNavigationItems()}
         />
+      </Wrapper>
+      <Wrapper title="'Grocery' test">
+        <Grocery products={CroceryService.getGroceries()} />
       </Wrapper>
       <Wrapper title="'Rating' test">
         <Rating />
