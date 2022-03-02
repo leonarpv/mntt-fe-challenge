@@ -11,6 +11,7 @@ import { ListItemsForNavigation } from "./components/Organisms/ListItemsForNavig
 import { ImageGallery } from "./components/Organisms/ImageGallery"
 import { Rating } from "./components/Organisms/Rating"
 import { Grocery } from "./components/Organisms/Grocery"
+import { PlayerStatus } from "./components/Organisms/PlayerStatus"
 
 export default function App() {
   const [inputFocused, setInputFocused] = useState(false)
@@ -45,6 +46,9 @@ export default function App() {
       </Wrapper>
       <Wrapper title="'Rating' test">
         <Rating />
+      </Wrapper>
+      <Wrapper title="'PlayerStatys' test">
+        <PlayerStatus />
       </Wrapper>
       <Wrapper title="'TeamsList' test">
         <TeamsList />
